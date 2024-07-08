@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              oswald: ["Oswald", "sans-serif"],
+            },
+            colors: {
+              primarycolor: "#535040",
+              secondarycolor: "#000000",
+              tertiarycolor: "#fffff",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-oswald bg-primarycolor">
+    <div class="flex flex-col items-center mt-[180px]">
+      <form
+        action="/submit"
+        method="post"
+        id="formBody"
+        enctype="multipart/form-data"
+        onsubmit="return validateForm(event)"
+        class="bg-secondarycolor w-[400px] h-[400px] text-white pl-[10px] pt-[10px] rounded-xl"
+      >
+        <div id="headerContainer">
+          <h2 class="flex justify-center">Update Your Profile</h2>
+        </div>
+        <div>
+          <label for="firstName">Full Name:</label>
+          <input
+            id="fname"
+            name="fullName"
+            type="text"
+            class="w-[350px] h-[40px] border-solid border-white rounded-md border-2 bg-secondarycolor"
+            onkeyup="validateName()"
+            required
+          />
+          <span id="name-error" class="text-red-500"></span>
+        </div>
+        <div>
+          <label for="phoneNumber">Phone No:</label>
+          <input
+            id="phone"
+            name="phoneNumber"
+            type="tel"
+            class="w-[350px] h-[40px] border-solid border-white rounded-md border-2 bg-secondarycolor"
+            onkeyup="validatePhone()"
+            required
+          />
+          <span id="phone-error" class="text-red-500"></span>
+        </div>
+        <div>
+          <label for="email">Email address:</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            class="w-[350px] h-[40px] border-solid border-white rounded-md border-2 bg-secondarycolor"
+            onkeyup="validateEmail()"
+            required
+          />
+          <span id="email-error" class="text-red-500"></span>
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input
+            id="pass"
+            name="password"
+            type="password"
+            class="w-[350px] h-[40px] border-solid border-white rounded-md border-2 bg-secondarycolor"
+            onkeyup="validatePassword()"
+            required
+          />
+          <span id="password-error" class="text-red-500"></span>
+        </div>
+        <div class="mt-[10px]">
+          <input type="file" id="image" name="image" />
+        </div>
+        <div id="buttonContainer" class="flex justify-center mt-[10px]">
+          <button
+            id="submit"
+            type="submit"
+            onclick="validateForm(event)"
+            class="bg-secondarycolor w-[120px] h-[30px] border-2 border-white rounded-md"
+          >
+            Submit form
+          </button>
+          <span id="submit-error" class="text-red-500"></span>
+        </div>
+      </form>
+    </div>
+    <div>
+      <button
+        class="bg-secondarycolor w-[120px] h-[30px] text-white border-2 border-white rounded-md"
+      >
+        <a href="index.html">PROFILES PAGE</a>
+      </button>
+    </div>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="form.js"></script>
+  </body>
+</html>
